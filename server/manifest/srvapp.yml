@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: srvquizz 
+  labels:
+    app: srvquizz 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: srvquizz
+  template:
+    metadata:
+      labels:
+        app: srvquizz
+    spec:
+      containers:
+      - name: srvquizz
+        image: "eu.gcr.io/mytestproject-225717/srvquizz:v1"
+        env:
+        - name: REDISHOST
+          valueFrom:
+            configMapKeyRef:
+              name: redishost
+              key: REDISHOST
+        ports:
+        - name: http
+          containerPort: 5000
