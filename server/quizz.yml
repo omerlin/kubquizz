@@ -1,0 +1,36 @@
+kubernetes:
+  - id: '1'
+    question: How do containers within a pod communicate?
+    options:
+      - {id: 1, label: Using 127.0.0.1/localhost and the port number}
+      - {id: 2, label: By default, they can't communicate}
+      - {id: 3, label: Using DNS}
+      - {id: 4, label: Using a serviced object}
+      - {id: 5, label: Using Service Discovery}
+    answer: 
+    tip: ''
+  - id: '2'
+    question: How many containers can you run in a pod ?
+    options:
+      - {id: 1, label: Just one}
+      - {id: 2, label: Multiple}
+      - {id: 3, label: One or two}
+    answer: 
+    tip: ''
+  - id: '3'
+    question: How does the AWS LoadBalancer routes traffic to the correct pod ?
+    options:
+      - {id: 1, label: The load balancer uses a nodePort that is exposed on all non-master nodes}
+      - {id: 2, label: The load balancer uses DNS and service discovery }
+      - {id: 3, label: The kube-proxy is aware of the Load Balancer}
+      - {id: 4, label: The load blancer is aware of the pod name}
+    answer: 
+    tip: ''
+  - id: '4'
+    question: The command "kubectl expose" is used for what purpose?
+    options:
+      - {id: 1, label: To modify an existing service}
+      - {id: 2, label: To create a service object for an existing object}
+      - {id: 3, label: To expose a pod to external cluster users by assigning public IP address to the pod}
+    answer: 
+    tip: ''

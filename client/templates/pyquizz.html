@@ -1,0 +1,27 @@
+<!doctype html>
+<title>A short python quiz</title>
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style_miniquiz.css')}}'>
+<div>
+  <h1>Question #{{num}} of {{ntot}}</h1>
+
+  <div>
+<br /> <br />
+{{question}}
+
+<h4>
+<form id='answerform_python' method='post' >
+   <p>
+   Answer: <br /> <br /> <br />
+   {% for opt in opts%}
+   <input type='radio' name='answer_python' id="r{{loop.index}}" {% if loop.index == optrand %}checked{% endif %} value={{ opt['id'] }} /> <label for="r{{loop.index}}" style="border:2px solid #ccc;border-style: groove;padding: 10px;">{{ opt['label'] }}</label> <br /> <br /> <br />
+   {% endfor %}
+   </p>
+
+   <p>
+   <input type='submit' value='Next' id="r7" formaction="/quizz" /> 
+   </p>
+</form>
+</h4>
+
+</div>
+</div>
