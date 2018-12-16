@@ -34,3 +34,78 @@ kubernetes:
       - {id: 3, label: To expose a pod to external cluster users by assigning public IP address to the pod}
     answer: 
     tip: ''
+  - id: '5'
+    question: What service is responsible to make changes to iptables to route traffic to pods?
+    options:
+      - {id: 1, label: The kube-scheduler}
+      - {id: 2, label: The kubelet}
+      - {id: 3, label: The kube-apiserver}
+      - {id: 4, label: The kube-proxy}
+    answer: 
+    tip: ''      
+  - id: '6'
+    question: The kube-apiserver runs on the master node ?
+    options:
+      - {id: 1, label: TRUE}
+      - {id: 2, label: FALSE}
+    answer: 
+    tip: ''    
+  - id: '7'
+    question: What is the best object to use to deploy a web application on Kubernetes ?
+    options:
+      - {id: 1, label: The ReplicaSet}
+      - {id: 2, label: The pod object}
+      - {id: 3, label: The replication controller}
+      - {id: 4, label: The Deployment object}
+    answer: 
+    tip: ''   
+  - id: '8'
+    question: Containers within a pod can span multiple nodes ?
+    options:
+      - {id: 1, label: TRUE}
+      - {id: 2, label: FALSE}
+    answer: 
+    tip: ''             
+  - id: '9'
+    question: The kube-scheduler runs on every node in the cluster ?
+    options:
+      - {id: 1, label: TRUE}
+      - {id: 2, label: FALSE}
+    answer: 
+    tip: ''                 
+  - id: '10'
+    question: When scaling a relational database Pod, like MySQL, from 1 to 2 pods, what will happen ?
+    options:
+      - {id: 1, label: You'll have 2 database pods. Writes to the database on pod 1 will also appear on pod 2}
+      - {id: 2, label: it'll not work}
+      - {id: 3, label: You'll have spun up 2 different database pods with each own database. Writes to 1 pod will not be replicated to te other pod}
+    answer: 
+    tip: ''         
+  - id: '11'
+    question:  In regards to Service Discovery, what makes "curl service1" work (service1 is the name of a Service object)? ?
+    options:
+      - {id: 1, label: IP tables intercept DNS calls and reroutes it to the internal kubernetes DNS server}
+      - {id: 2, label: The /etc/resolv.conf file is modified to make sure all DNS lookups go to an internal DNS server.}
+      - {id: 3, label: Kubernetes has a list of all services in its etcd database. Every time a pod is deployed, all the services are listed in /etc/hosts to make the DNS of service1 work}  
+      - {id: 4, label: The kube-proxy intercept DNS calls and reroutes it to the internal kubernetes DNS server}
+      - {id: 5, label: The kube-apiserver intercept DNS calls and reroutes it to the internal kubernetes DNS server}
+    answer: 
+    tip: ''         
+  - id: '12'
+    question:  You want to make a config file available within your container. You don't want to rebuild the image to change the config file, what do you use?
+    options:
+      - {id: 1, label: You use a secrets object}
+      - {id: 2, label: You add a persistent volume, and you copy the config file to the volume}
+      - {id: 3, label: You use a ConfigMap object}
+      - {id: 4, label: You add a config file in the Deployments object }
+    answer: 
+    tip: ''         
+  - id: '13'
+    question:  What is one of the benefits of an ingress controller on the cloud ?
+    options:
+      - {id: 1, label: There are no benefit, you can use LoadBalancer type service}
+      - {id: 2, label: An Ingress controller requires less maintenance than a Cloud LoadBalancer}
+      - {id: 3, label: An ingress controller can potentially save costs}
+      - {id: 4, label: It's easier to manage TLS certificates with an ingress Contoller on AWS}
+    answer: 
+    tip: ''         
