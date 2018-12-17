@@ -46,8 +46,8 @@ kubernetes:
   - id: '6'
     question: The kube-apiserver runs on the master node ?
     options:
-      - {id: 1, label: TRUE}
-      - {id: 2, label: FALSE}
+      - {id: 1, label: 'TRUE'}
+      - {id: 2, label: 'FALSE'}
     answer: 
     tip: ''    
   - id: '7'
@@ -62,15 +62,15 @@ kubernetes:
   - id: '8'
     question: Containers within a pod can span multiple nodes ?
     options:
-      - {id: 1, label: TRUE}
-      - {id: 2, label: FALSE}
+      - {id: 1, label: 'TRUE'}
+      - {id: 2, label: 'FALSE'}
     answer: 
     tip: ''             
   - id: '9'
     question: The kube-scheduler runs on every node in the cluster ?
     options:
-      - {id: 1, label: TRUE}
-      - {id: 2, label: FALSE}
+      - {id: 1, label: 'TRUE'}
+      - {id: 2, label: 'FALSE'}
     answer: 
     tip: ''                 
   - id: '10'
