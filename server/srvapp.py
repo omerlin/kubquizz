@@ -8,7 +8,7 @@ redis_port = int(os.environ.get('REDISPORT', 6379))
 
 rediscli=redis.StrictRedis(host=redis_host, port=redis_port)
 app = Flask(__name__)
-with open('quizz.yml') as fp:
+with open('/etc/config/quizz.yml') as fp:
     quizz = yaml.load(fp)
 
 @app.route('/srv/quizz', methods=['GET'])
