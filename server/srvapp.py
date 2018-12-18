@@ -13,15 +13,29 @@ with open('/etc/config/quizz.yml') as fp:
 
 @app.route('/srv/quizz', methods=['GET'])
 def get_quizz():
-    return jsonify({'kubernetes': quizz['kubernetes']})
+    return jsonify({'kubernetes': quizz['kubernetes']}), 200
 
 @app.route('/srv/answer', methods=['POST'])
 def answer():
+    """
+      Store user quizz results 
+    """
     # try increment
     rediscli.incr('{}_counter'.format(request.json['user']))
     # quizz result
     rediscli.set(request.json['user'], str(request.json))
     return jsonify({'doneFor': request.json['user']}), 201
+
+@app.route('/srv/data', methods=['GET'])
+def get_data():
+    """
+       Get all the datas stored in redis
+    """
+    d={}
+    for key in rediscli.scan_iter("user:*"):
+        d[key]=rediscli.get(key)
+    return jsonify(d), 200
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
