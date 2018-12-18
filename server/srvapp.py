@@ -31,10 +31,10 @@ def get_data():
     """
        Get all the datas stored in redis
     """
-    d={}
+    results={}
     for key in rediscli.scan_iter("user:*"):
-        d[key]=rediscli.get(key)
-    return jsonify(d), 200
+        results[key] = rediscli.get(key)
+    return jsonify(results), 200
 
 
 if __name__ == '__main__':
