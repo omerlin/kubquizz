@@ -1,4 +1,4 @@
-import os
+import os, platform
 from flask import Flask, jsonify, request
 import yaml
 import redis
@@ -8,12 +8,15 @@ redis_port = int(os.environ.get('REDISPORT', 6379))
 
 rediscli=redis.StrictRedis(host=redis_host, port=redis_port)
 app = Flask(__name__)
-with open('/etc/config/quizz.yml') as fp:
+with open(os.environ.get('SRVAPPENV','/etc/config/quizz.yml')) as fp:
     quizz = yaml.load(fp)
 
-@app.route('/srv/quizz', methods=['GET'])
-def get_quizz():
-    return jsonify({'kubernetes': quizz['kubernetes']}), 200
+@app.route('/srv/quizz/<category>', methods=['GET'])
+def get_quizz(category):
+    try:
+        return jsonify({category: quizz[category]}), 200
+    except KeyError:
+        return jsonify('Unknown quizz category: {}'.format(category), 500)
 
 @app.route('/srv/answer', methods=['POST'])
 def answer():
@@ -38,4 +41,5 @@ def get_data():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', debug=os.environ.get('SRVAPPDEBUG','FALSE').upper()=='TRUE',
+            port=int(os.environ.get('SRVAPPPORT', 60000 if platform.system() else 6000)))
