@@ -35,8 +35,8 @@ def get_data():
        Get all the datas stored in redis
     """
     results={}
-    for key in rediscli.scan_iter("user:*"):
-        results[key] = rediscli.get(key)
+    for key in rediscli.scan_iter("*"):
+        results[key.decode('utf-8')] = rediscli.get(key).decode('utf-8')
     return jsonify(results), 200
 
 
