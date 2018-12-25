@@ -42,4 +42,4 @@ def get_data():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=os.environ.get('SRVAPPDEBUG','FALSE').upper()=='TRUE',
-            port=int(os.environ.get('SRVAPPPORT', 60000 if platform.system() else 6000)))
+            port=int(os.environ.get('SRVAPPPORT', 60000 if platform.system()=='Windows' else 6000)))
