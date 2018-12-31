@@ -5,6 +5,8 @@ import requests
 import yaml,json
 from datetime import datetime
 
+
+
 #------------- Server side ---------------------
 def get_questions(uri, category='kubernetes'):
     q = requests.get('{}/srv/quizz/{}'.format(uri,category))
