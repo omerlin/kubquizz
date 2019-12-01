@@ -9,6 +9,6 @@ spec:
     app: srvquizz
   ports:
   - port: 80
-    targetPort: 5000
+    targetPort: 6000
   type: LoadBalancer
-  loadBalancerIP: "35.195.67.45"
+  #loadBalancerIP: "<<to_be_provisioned>>"
