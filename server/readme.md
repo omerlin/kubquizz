@@ -42,7 +42,9 @@ git clone https://github.com/omerlin/kubquizz.git
 cd kubquizz/server
 gcloud builds submit --tag eu.gcr.io/$PROJECT/srvquizz:v1 .
 ```
+This create an image in the form : eu.gcr.io/$PROJECT/srvquizz:v1
 
+### Optional: booking the External floating IP
 ```
 gcloud compute addresses create srvapp-ip --region $REGION
 gcloud compute addresses describe srvapp-ip --region $REGION
