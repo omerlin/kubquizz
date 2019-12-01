@@ -4,11 +4,14 @@ We explain here the deployment on GC
 
 ## pre-requisites
 
-*(kubecl GKE api must be enabled)*
+*(kubectl GKE api must be enabled)*
+```
+sudo /opt/google-cloud-sdk/bin/gcloud components install kubectl
+```
 
 You need first a project code, a region and zone
 ```
-PROJECT=mytestproject-225717
+PROJECT=xxxxx
 REGION=europe-west1
 ZONE=europe-west1-b
 ```
