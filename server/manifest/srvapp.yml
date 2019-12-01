@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: srvquizz
-        image: "eu.gcr.io/mytestproject-225717/srvquizz:v3"
+        image: "eu.gcr.io/$PROJECT/srvquizz:v1"
         env:
         - name: REDISHOST
           valueFrom:
