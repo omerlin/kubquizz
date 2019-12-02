@@ -18,7 +18,7 @@ kubernetes:
     answer: 
     tip: ''
   - id: '3'
-    question: How does the AWS LoadBalancer routes traffic to the correct pod ?
+    question: How does the GCP LoadBalancer routes traffic to the correct pod ?
     options:
       - {id: 1, label: The load balancer uses a nodePort that is exposed on all non-master nodes}
       - {id: 2, label: The load balancer uses DNS and service discovery }
@@ -101,11 +101,27 @@ kubernetes:
     answer: 
     tip: ''         
   - id: '13'
-    question:  What is one of the benefits of an ingress controller on the cloud ?
+    question:  Nat Networking in virtual box allows ...
     options:
-      - {id: 1, label: There are no benefit, you can use LoadBalancer type service}
-      - {id: 2, label: An Ingress controller requires less maintenance than a Cloud LoadBalancer}
-      - {id: 3, label: An ingress controller can potentially save costs}
-      - {id: 4, label: It's easier to manage TLS certificates with an ingress Contoller on AWS}
+      - {id: 1, label: Several internal host to discuss together}
+      - {id: 2, label: All internal host to be reacheable from internet}
+      - {id: 3, label: To configure internal networking easily}
     answer: 
     tip: ''         
+  - id: '14'
+    question:  when managing several pods, in term of concept ...
+    options:
+      - {id: 1, label: You are managing some mortal pods, in cattle mode}
+      - {id: 2, label: You are taking care of each pod carefully like a pet}
+      - {id: 3, label: You are deploying in a Product AS Service (PAAS)}
+    answer: 
+    tip: ''         
+  - id: '15'
+    question:  What is the difference between Minikube and K3S ...
+    options:
+      - {id: 1, label: No difference there are simple light kubernetes}
+      - {id: 2, label: Minikube deploys more services than K3s}
+      - {id: 3, label: K3S allows to deploy a full architecture, with several kubernetes nodes}
+    answer: 
+    tip: ''         
+
