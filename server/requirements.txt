@@ -1,4 +1,4 @@
-Flask>=0.12,<0.13
-gunicorn>=19,<20
-PyYAML>=3.13
-redis>=3.0.1
+Flask>=1.1.2
+gunicorn>=20
+PyYAML>=5.4.1
+redis>=3.5
