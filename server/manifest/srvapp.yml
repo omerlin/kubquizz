@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: srvquizz 
@@ -25,7 +25,7 @@ spec:
               key: REDISHOST
         ports:
         - name: http
-          containerPort: 5000
+          containerPort: 6000
         volumeMounts:
         - name: config-volume
           mountPath: /etc/config

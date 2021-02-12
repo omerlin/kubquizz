@@ -9,7 +9,7 @@ redis_port = int(os.environ.get('REDISPORT', 6379))
 rediscli=redis.StrictRedis(host=redis_host, port=redis_port)
 app = Flask(__name__)
 with open(os.environ.get('SRVAPPENV','/etc/config/quizz.yml')) as fp:
-    quizz = yaml.load(fp)
+    quizz = yaml.load(fp, Loader=yaml.FullLoader)
 
 @app.route('/srv/quizz/<category>', methods=['GET'])
 def get_quizz(category):
@@ -42,4 +42,4 @@ def get_data():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=os.environ.get('SRVAPPDEBUG','FALSE').upper()=='TRUE',
-            port=int(os.environ.get('SRVAPPPORT', 60000 if platform.system()=='Windows' else 6000)))
+            port=int(os.environ.get('SRVAPPPORT', 50000 if platform.system()=='Windows' else 5000)))

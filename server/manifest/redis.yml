@@ -10,7 +10,7 @@ spec:
   selector:
     app: redis
 ---
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: redis
@@ -36,8 +36,12 @@ spec:
           volumeMounts:
             - name: redis-volume
               mountPath: /data
-      volumes:
-        - name: redis-volume
-          gcePersistentDisk:
-            pdName: redis-disk
-            fsType: ext4
+  # This provision automatically volumes
+  volumeClaimTemplates:
+    - metadata:
+        name: redis-volume
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
