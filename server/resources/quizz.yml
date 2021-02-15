@@ -151,7 +151,7 @@ kubernetes:
       - {id: 6, label: Broad network access }
     answer:
     tip: ''
-  - id: '20'
+  - id: '19'
     question: Why is kubernetes deployed in all Public Clouds ?
     options:
       - {id: 1, label: scalability}
