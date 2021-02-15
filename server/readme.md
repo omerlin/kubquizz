@@ -91,20 +91,29 @@ gcloud compute addresses describe srvapp-ip --region $REGION
 Then add the external IP in the srvapp-service.yml LoadBalancer configuration
 
 ## Install srvapp application
+
+```
 cd ~/kubquizz/server
 kubectl create configmap quizz-data --from-file=./resources/quizz.yml
 kubectl create -f manifest/cm_redishost.yml
 kubectl create -f manifest/redis.yml
 kubectl create -f manifest/srvapp.yml
 kubectl create -f manifest/srvapp-service.yml
-
+```
+Now we can have a look at the external Load Balancer IP:
+```
 vagrant@controller:~/kubquizz/server$ kubectl get svc
 NAME         TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
 kubernetes   ClusterIP      10.120.0.1    <none>          443/TCP        137m
 redis        ClusterIP      None          <none>          6379/TCP       41m
 srvquizz     LoadBalancer   10.120.8.24   35.205.41.166   80:32640/TCP   12m
+```
+
 
 ### mapping with gandi.net
-quizz	A	1800	35.205.41.166
 
-so ... now the server is accessible over internet on http://quizz.cossme.pw
+```
+quizz	A	1800	35.205.41.166
+```
+
+so ... now the server is accessible over internet on `http://quizz.cossme.pw`
