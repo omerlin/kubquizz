@@ -123,5 +123,42 @@ kubernetes:
       - {id: 2, label: Minikube deploys more services than K3s}
       - {id: 3, label: K3S allows to deploy a full architecture, with several kubernetes nodes}
     answer: 
-    tip: ''         
+    tip: ''
+  - id: '16'
+    question:  A database container inside a docker compose ...
+    options:
+      - {id: 1, label: use expose keyword to share it port to other container in the provate network}
+      - {id: 2, label: use ports keyword  to expose port to the guest network }
+      - {id: 3, label: doesn't need something special it's available to other pods }
+    answer:
+    tip: ''
+  - id: '17'
+    question:  Which cloud type abstracts runtime infrastructure, middleware and operating system in addition to compute, network and storage resources?
+    options:
+      - {id: 1, label: Iaas}
+      - {id: 2, label: Paas }
+      - {id: 3, label: Saas }
+    answer:
+    tip: ''
+  - id: '18'
+    question: Which one of the following is not an essential characteristic of cloud computing?
+    options:
+      - {id: 1, label: On demand self-service}
+      - {id: 2, label: Rapid elasticity }
+      - {id: 3, label: Measured service }
+      - {id: 4, label: Open source }
+      - {id: 5, label: Resource pooling }
+      - {id: 6, label: Broad network access }
+    answer:
+    tip: ''
+  - id: '20'
+    question: Why is kubernetes deployed in all Public Clouds ?
+    options:
+      - {id: 1, label: scalability}
+      - {id: 2, label: usage of immutable containers }
+      - {id: 3, label: vendor agnostic }
+      - {id: 4, label: reduce costs }
+    answer:
+    tip: ''
+
 
