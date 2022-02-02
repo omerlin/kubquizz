@@ -1,8 +1,23 @@
 # Simple server part for quizz application
 In the manifest/ subdirectory there are the files for kubernetes deployment
+
+## Deployment on a Ubuntu server
+This is the poor man installation
+
+```
+git clone https://github.com/omerlin/kubquizz.git
+cd kubquizz/server
+sudo apt install -y python3-pip
+sudo pip3 install -r requirements.txt
+sudo apt install -y redis-server
+export SRVAPPENV=$HOME/kubquizz/server/resources/quizz.yml
+nohup python3 srvapp.py &
+```
+
+
+## Deployment on GKE
 We explain here the deployment on GC
 
-## pre-requisites
 
 * Project must be created 
 * kubectl GKE api must be enabled
@@ -57,7 +72,7 @@ gcloud container clusters get-credentials test-cluster
 MYCONTEXT=gke_mytestproject-225717_europe-west1-b_test-cluster
 kubectl config set-context $MYCONTEXT
 ```
-## Kubernetes setup
+### Kubernetes setup
 
 ```
 gcloud container clusters create test-cluster --num-nodes=3 --enable-ip-alias
@@ -90,7 +105,7 @@ gcloud compute addresses describe srvapp-ip --region $REGION
 
 Then add the external IP in the srvapp-service.yml LoadBalancer configuration
 
-## Install srvapp application
+### Install srvapp application
 
 ```
 cd ~/kubquizz/server
@@ -110,7 +125,7 @@ srvquizz     LoadBalancer   10.120.8.24   35.205.41.166   80:32640/TCP   12m
 ```
 
 
-### mapping with gandi.net
+## mapping with gandi.net
 
 ```
 quizz	A	1800	35.205.41.166
