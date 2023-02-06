@@ -1,10 +1,13 @@
 # Simple server part for quizz application
 In the manifest/ subdirectory there are the files for kubernetes deployment
 
-## Deployment on a Ubuntu server
+## Deployment on a Debian server on a public IP
 This is the poor man installation
 
-```
+### install application
+```bash
+# Tested on debian bulleyes (11.x)
+sudo apt install git, haproxy -y
 git clone https://github.com/omerlin/kubquizz.git
 cd kubquizz/server
 sudo apt install -y python3-pip
@@ -13,6 +16,44 @@ sudo apt install -y redis-server
 export SRVAPPENV=$HOME/kubquizz/server/resources/quizz.yml
 nohup python3 srvapp.py &
 ```
+### Configure for a remote access
+First, you need to add a DNS redirection of the PublicIP to your server
+In my case, i have a DNS at gandi.net
+so i need an entry like this :
+```
+quizz	A	1800	35.205.41.166
+```
+**Warning** the rule may take from several minutes to a few ours to propagate
+
+As the remote call will be on a 80 port a simple redirection to port 5000 with ha-proxy adding this config:
+```
+defaults
+        log     global
+        mode    http
+        option  httplog
+        option  dontlognull
+        timeout connect 5000
+        timeout client  50000
+        timeout server  50000
+        errorfile 400 /etc/haproxy/errors/400.http
+        errorfile 403 /etc/haproxy/errors/403.http
+        errorfile 408 /etc/haproxy/errors/408.http
+        errorfile 500 /etc/haproxy/errors/500.http
+        errorfile 502 /etc/haproxy/errors/502.http
+        errorfile 503 /etc/haproxy/errors/503.http
+        errorfile 504 /etc/haproxy/errors/504.http
+
+
+frontend http-in
+    bind *:80
+    acl url_port_5000 path_beg /srv
+    use_backend bk_monapplication if url_port_5000
+
+backend bk_monapplication
+    server srv_monapplication 127.0.0.1:5000
+```
+
+
 
 
 ## Deployment on GKE

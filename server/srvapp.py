@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os, platform
 from flask import Flask, jsonify, request
 import yaml
