@@ -1,3 +1,23 @@
+demo:
+  - id: 1
+    question: What do you think about the future ?
+    options:
+      - {id: 1, label: There is no future}
+      - {id: 2, label: Well let see what happens, will be challenging ...}
+  - id: 2
+    question: What is the best development language for you ?
+    options:
+      - {id: 1, label: I don't give a shit}
+      - {id: 2, label: Java for enterprise }
+      - {id: 3, label: Golang as this is the best compromise simplicity/performance }
+      - {id: 4, label: Rust is the future ! }
+      - {id: 5, label: Python simple and powerful for analytics, ML ! }
+  - id: 3
+    question: What do you think about ChatGPT ?
+    options:
+      - {id: 1, label: This is a cool cheat tool}
+      - {id: 2, label: This is a frightful future}
+      - {id: 3, label: This is a Damns cool}
 kubernetes:
   - id: '1'
     question: How do containers within a pod communicate?
@@ -18,7 +38,7 @@ kubernetes:
     answer: 
     tip: ''
   - id: '3'
-    question: How does the GCP LoadBalancer routes traffic to the correct pod ?
+    question: How does a Cloud Provider LoadBalancer routes traffic to the correct pod ?
     options:
       - {id: 1, label: The load balancer uses a nodePort that is exposed on all non-master nodes}
       - {id: 2, label: The load balancer uses DNS and service discovery }
